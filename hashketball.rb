@@ -104,12 +104,23 @@ def game_hash
 end
 
 
+def method(points)
+  game_hash.each do |team, data|
+  data[:players].each do |player_name, stats| 
+    if stats[:points] == points
+      puts player_name
+    end
+  end
+end
+end 
+method(33)
+
 def num_points_scored(name)
   points = nil
   game_hash.each do |team, data| # why point to the method?
     data[:players].each do |player_name, stats| # need the value here - this is so the points can be returned??
       if player_name == name  
-        points = game_hash[team][:players][name][:points]
+        points = game_hash[team][:players][name][:points] # stats[:points]
         end
       end
    end
